@@ -1,0 +1,37 @@
+ <html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Tagged Template Strings</title>
+
+  <style>
+    body {
+      font-size: 30;
+    }
+    .saudacao {
+      color: #af0606;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    function tagTemplate(template, ...values) {
+      return template.reduce((acumulador, parteAtual, i) =>{
+        return `          
+          ${acumulador}
+          <span class="saudacao">${values[i - 1]}</span>
+          ${parteAtual}
+        `
+      });
+    }
+
+    const nome = 'Allan Barbosa';
+    const total = '13';
+    const resultado = tagTemplate`Seja bem vindo ${nome}<br>Você recebeu ${total} alertas`;
+
+    document.body.innerHTML = resultado;
+  </script>
+</body>
+</html>
