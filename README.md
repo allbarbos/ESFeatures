@@ -1,7 +1,7 @@
 # EcmaScript Features
 
-Exemplos práticos de features do ES6, ES7.
+Exemplos práticos de features do EcmaScript.
 
-## Conteúdo
+### Conteúdo
 
-Todo conteúdo pode ser acessado através do medium.com/allbarbos
+* Tagged Template Strings: https://goo.gl/Ben4cE
