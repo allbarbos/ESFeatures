@@ -1,0 +1,28 @@
+ <html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Property Shorthand</title>
+</head>
+<body>
+  <script>
+    const nome = 'Allan';
+    const sobreNome = 'Barbosa';
+    const idade = 26;
+
+    const usuario = {
+      nome,
+      sobreNome,
+      idade,
+
+      imprime() {
+        console.log(`Usuário: ${usuario.nome} ${usuario.sobreNome}`);
+        document.body.innerHTML= `Usuário: ${usuario.nome} ${usuario.sobreNome}`;
+      }
+    };
+
+    usuario.imprime();
+  </script>
+</body>
+</html>
