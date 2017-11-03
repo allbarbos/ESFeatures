@@ -1,0 +1,89 @@
+ <html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>New Built-In Methods</title>
+</head>
+<body>
+  <script>
+    // StartsWith
+    if (!String.prototype.startsWith) {
+      String.prototype.startsWith = function(searchString, position) {
+        position = position || 0;
+        return this.indexOf(searchString, position) === position;
+      };
+    }
+
+    console.log("Métodos bacanudos para string".startsWith("Métodos"));
+    console.log("Métodos bacanudos para string".startsWith("bacanudos", 8));
+
+
+    // EndsWith
+    if (!String.prototype.endsWith)
+      String.prototype.endsWith = function(searchStr, Position) {      
+        if (!(Position < this.length))
+          Position = this.length;
+        else
+          Position |= 0;
+        return this.substr(Position - searchStr.length,
+                           searchStr.length) === searchStr;
+      };
+    console.log("Métodos bacanudos para string".endsWith("string"));
+    console.log("Métodos bacanudos para string".endsWith("bacanudos", 17));
+
+    // Includes
+    if (!String.prototype.includes) {
+      String.prototype.includes = function(search, start) {
+        'use strict';
+        if (typeof start !== 'number') {
+          start = 0;
+        }
+        
+        if (start + search.length > this.length) {
+          return false;
+        } else {
+          return this.indexOf(search, start) !== -1;
+        }
+      };
+    }
+    console.log("Métodos bacanudos para string".includes("para"));
+    console.log("Métodos bacanudos para string".includes("Para"));
+    console.log("Métodos bacanudos para string".includes("Métodos", 1));
+
+    // Repeat
+    if (!String.prototype.repeat) {
+      String.prototype.repeat = function(count) {
+        'use strict';
+        if (this == null) {
+          throw new TypeError('can\'t convert ' + this + ' to object');
+        }
+        var str = '' + this;
+        count = +count;
+        if (count != count) {
+          count = 0;
+        }
+        if (count < 0) {
+          throw new RangeError('repeat count must be non-negative');
+        }
+        if (count == Infinity) {
+          throw new RangeError('repeat count must be less than infinity');
+        }
+        count = Math.floor(count);
+        if (str.length == 0 || count == 0) {
+          return '';
+        }    
+        if (str.length * count >= 1 << 28) {
+          throw new RangeError('repeat count must not overflow maximum string size');
+        }
+        var rpt = '';
+        for (var i = 0; i < count; i++) {
+          rpt += str;
+        }
+        return rpt;
+      }
+    }
+    console.log("Bacanudos".repeat(3));
+  </script>
+</body>
+</html>
