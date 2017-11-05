@@ -1,0 +1,179 @@
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>New Built-In Methods - Array</title>
+
+    <link rel="stylesheet" href="https://bootswatch.com/4/flatly/bootstrap.min.css">
+  </head>
+  <body>  
+    <br />
+    <div class="container">
+      <div class="jumbotron">
+          <h1 class="display-3">Array</h1>
+          <p>Novos métodos para maniputalção de Arrays.</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <h3 class="card-header">Array.from</h3>      
+            <div class="card-body">
+              <h6 class="card-subtitle">Transforma elementos que são similares ao array, em array, possíbilitando utilizar todos os métodos do prototipe Array.</h6>
+              <br />
+              <ul id="list">
+                <li>Birl 1</li>
+                <li>Birl 2</li>
+                <li>Birl 3</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="card">
+            <h3 class="card-header">Array.find e Array.findIndex</h3>      
+            <div class="card-body">
+              <h6 class="card-subtitle">Find: Procura por um dado dentro de um array e retorna o primeiro que estiver de acordo com a condição informada.</h6>
+              <br />
+
+              <h6 class="card-subtitle">FindIndex: Procura a posição de um dado dentro do array.</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <h3 class="card-header">Array.fill</h3>      
+            <div class="card-body">
+              <h6 class="card-subtitle">Com este métodos podemos preencher valores dentro de um array, seja total ou em determinadas posições.</h6>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+              <h3 class="card-header">Array.off</h3>      
+              <div class="card-body">
+                <h6 class="card-subtitle">Permite criar um array através de certos elementos.</h6>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br />
+    <footer>      
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="https://github.com/allbarbos/ESFeatures" target="_blank">GitHub</a>
+              </li>
+            </ul>
+
+            <!-- <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation" style="">
+              <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                  <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+              </div> -->
+          </div>
+        </nav>
+    </footer>
+
+    <script>
+      console.log('---------------------- INICIO Array.from');
+
+      const list = document.querySelectorAll('#list li');
+      console.log(list) // proto: NodeList
+
+      const listArray = Array.from(list);
+      console.log(listArray) // proto: NodeList
+
+      console.log('---------------------- FIM Array.from');
+
+      console.log('----------------------');
+      console.log('----------------------');
+      console.log('----------------------');
+
+      console.log('---------------------- INICIO Array.find e findIndex');
+
+      const arraySimples = [4, -1, 13, -2,];
+      const menoresQueZero = arraySimples.find(x => x < 0);
+      const menoresQueZeroIndex = arraySimples.findIndex(x => x < 0);
+      console.log(`Valor: ${menoresQueZero}`, `Index: ${menoresQueZero}`);
+
+      const pessoas = [
+        {
+          nome: 'Allan',
+          idade: 26,
+          cidade: 'Campinas'
+        },
+        {
+          nome: 'João',
+          idade: 89,
+          cidade: 'São Paulo'
+        }
+      ];
+      const pessoa = pessoas.find(x => x.nome === 'João');
+      const pessoaIndex = pessoas.findIndex(x => x.nome === 'João');
+      console.log(pessoa, `Index: ${pessoaIndex}`);
+
+      console.log('---------------------- FIM Array.find e findIndex');
+
+      console.log('----------------------');
+      console.log('----------------------');
+      console.log('----------------------');
+
+      console.log('---------------------- INICIO Array.fill');
+
+      let array = new Array(50);
+      array.fill('birl');
+      console.log(array);
+
+      array = new Array(50);
+      array.fill('birl', 10, 31);
+      console.log(array);
+
+      let arrayNovo = [1,2,3,4,5,6];
+      arrayNovo.fill('birl', 1, 3);
+      console.log(arrayNovo);
+
+      console.log('---------------------- FIM Array.fill');
+
+      console.log('----------------------');
+      console.log('----------------------');
+      console.log('----------------------');
+
+      console.log('---------------------- INICIO Array.off');
+
+      const arrayOf = Array.of(1.5, 4, "Oiii", { nome: 'Allan'});
+      console.log(arrayOf);
+
+      console.log('---------------------- FIM Array.off');
+    </script>
+  </body>
+  </html>
