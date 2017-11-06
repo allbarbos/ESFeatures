@@ -1,0 +1,46 @@
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Destructuring</title>
+  </head>
+  <body>
+    <script>
+      const contato = {
+        nome: 'Allan',
+        sobrenome: 'Barbosa',
+        links: {
+         social: {
+          twitter: 'https://twitter.com/allbarbos',
+          linkedin: 'https://www.linkedin.com/in/allbarbos'   
+         }
+        }
+       }
+
+      // Por atribuição
+      // const nome = contato.nome;
+      // const sobrenome = contato.sobrenome;
+
+      // Por desestruturação 
+      const { nome, sobrenome } = contato;
+      console.log(nome);
+      console.log(sobrenome);
+
+      // Renomeando variável
+      const { twitter: tw, linkedin: lk } = contato.links.social;
+      console.log(tw);
+      console.log(lk);
+
+      // Setando valor default
+      const { idade = 18 } = contato
+      console.log(idade);
+
+      // Desestruturação de array
+      const array = ['Honda', 'Prata', 2017];
+      const [marca, cor, ano] = array;
+      console.log(marca);
+      console.log(cor);
+    </script>
+  </body>
+  </html>

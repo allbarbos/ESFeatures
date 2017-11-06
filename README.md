@@ -9,3 +9,4 @@ Exemplos práticos de features do EcmaScript.
 * New Built-In Methods - String: https://goo.gl/y9g2kF
 * New Built-In Methods - Array: 
 * Destructuring: https://goo.gl/43nqQx
+* Destructuring Swapping Variables: 
